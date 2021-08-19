@@ -70,15 +70,15 @@ public class CalculadoraTest {
     // Outros: @BeforeEach, @AfterEach, @AfterAll
 
     @DisplayName("Valida múltiplas somas com informações em CSV") //notação que descreve o que o teste faz, deixando explícito
-    @ParameterizedTest
-    @CsvSource({ "1.0, 1.0, 2.0", "2.0, 3.0, 6.0" })
+    @ParameterizedTest // indica que o próximo teste recebe parâmetros
+    @CsvSource({ "1.0, 1.0, 2.0", "2.0, 3.0, 6.0" }) // informa que os parâmetros a serem recebidos estão no formato .csv
     void validaMultiplasSomasCSV(double parcela1, double parcela2, double resultadoEsperado) {
         assertEquals(resultadoEsperado, calculadora.soma(parcela1, parcela2));
     }
 
     @DisplayName("Valida múltiplas somas com informações em arquivo CSV")
     @ParameterizedTest
-    @CsvFileSource(resources = "/data.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/data.csv", numLinesToSkip = 1) //informa que os parâmetros a serem recebidos estão em um arquivo .csv
     void validaMultiplasSomasArqCSV(double parcela1, double parcela2, double resultadoEsperado) {
         assertEquals(resultadoEsperado, calculadora.soma(parcela1, parcela2));
     }
