@@ -69,7 +69,7 @@ public class CalculadoraTest {
     } //método responsável por instanciar uma nova calculadora antes de iniciar os testes
     // Outros: @BeforeEach, @AfterEach, @AfterAll
 
-    @DisplayName("Valida múltiplas somas com informações em CSV")
+    @DisplayName("Valida múltiplas somas com informações em CSV") //notação que descreve o que o teste faz, deixando explícito
     @ParameterizedTest
     @CsvSource({ "1.0, 1.0, 2.0", "2.0, 3.0, 6.0" })
     void validaMultiplasSomasCSV(double parcela1, double parcela2, double resultadoEsperado) {
