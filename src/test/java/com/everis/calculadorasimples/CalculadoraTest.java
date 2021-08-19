@@ -26,6 +26,7 @@ public class CalculadoraTest {
     static Calculadora calculadora;
 
     @Test
+    //@Disabled : notação utilizada para desabilitar um teste
     public void testaSomaMenosIngenuo() {
         Calculadora myCalc = new Calculadora();
 
@@ -46,7 +47,7 @@ public class CalculadoraTest {
             temErro = true;
         }
         if (temErro) {
-            fail("Houve um erro na validação da soma.");
+            fail("Houve um erro na validação da soma."); //dispara uma exceção quando há erro na execução
         }
     }
 
@@ -62,10 +63,10 @@ public class CalculadoraTest {
         assertEquals(0.0, calculadora.soma(2, -2));
     }
 
-    @BeforeAll
+    @BeforeAll //notação utilizada para determinar que este método será executado antes de todos os outros
     public static void setup() {
         calculadora = new Calculadora();
-    }
+    } //método responsável por instanciar uma nova calculadora antes de iniciar os testes
     // Outros: @BeforeEach, @AfterEach, @AfterAll
 
     @DisplayName("Valida múltiplas somas com informações em CSV")
